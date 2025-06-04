@@ -12,6 +12,7 @@ pipeline {
                 sh '''
                 python3 -m venv venv
                 . venv/bin/activate
+                pip cache purge
                 pip install --upgrade pip
                 pip install -r requirements.txt
                 '''
