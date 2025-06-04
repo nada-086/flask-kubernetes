@@ -12,7 +12,6 @@ pipeline {
                 sh '''
                 python3 -m venv venv
                 . venv/bin/activate
-                pip cache purge
                 pip install --upgrade pip
                 pip install -r requirements.txt
                 '''
@@ -21,9 +20,13 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "pytest"
+                sh '''
+                . venv/bin/activate
+                pytest
+            '''
             }
         }
+
 
         stage('Login to Docker Registry') {
             steps {
