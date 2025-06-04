@@ -58,6 +58,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
+                        cd k8s
                         sed -i 's|{{IMAGE}}|${IMAGE_TAG}|g' deployment.yaml
                         kubectl apply -f deployment.yaml
                         '''
