@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "nadaessa/jenkins/jenkins-flask-app"
+        IMAGE_NAME = "nadaessa/jenkins-flask-app"
         IMAGE_TAG = "${IMAGE_NAME}:${env.GIT_COMMIT}"
     }
 
