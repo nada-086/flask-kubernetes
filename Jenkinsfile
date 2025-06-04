@@ -9,6 +9,8 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
+                sh "pwd"
+                sh "ls"
                 sh "pip install -r requirements.txt"
             }
         }
